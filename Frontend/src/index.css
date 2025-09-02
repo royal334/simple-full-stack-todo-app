@@ -1,1 +1,50 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+
+@theme{
+     --color-gray-50: hsl(0, 0%, 98%);
+     --color-purple-300: hsl(234, 39%, 85%);
+     --color-gray-300: hsl(233, 11%, 84%);
+     --color-gray-600: hsl(236, 9%, 61%);
+     --color-navy-850: hsl(235, 19%, 35%);
+
+     --color-navy-950: hsl(235, 21%, 11%);
+     --color-navy-900: hsl(235, 24%, 19%);
+     --color-purple-100: hsl(236, 33%, 92%); /*hover*/
+     --color-purple-600: hsl(235, 16%, 43%);
+     --color-purple-700: hsl(233, 14%, 35%);
+     --color-purple-800: hsl(237, 14%, 26%);
+}
+
+
+
+body{
+     background-image: url('/images/bg-mobile-light.jpg');
+     background-repeat: no-repeat; 
+     background-size: cover;
+     background-color: hsl(233, 11%, 84%);
+     }
+
+@media (min-width:768px) {
+
+     body{ 
+     font-family: 'Josefin Sans', sans-serif;
+     background-image: url('/images/bg-desktop-light.jpg');
+     background-repeat: no-repeat; 
+     background-size: cover;
+     }
+
+}
+
+@media (prefers-color-scheme: dark) {
+     body{
+          background-image: url('/images/bg-mobile-dark.jpg');
+     }
+
+     @media (min-width:768px) {
+          body{
+               background-image: url('/images/bg-desktop-dark.jpg');
+          }
+     }
+     
+}
