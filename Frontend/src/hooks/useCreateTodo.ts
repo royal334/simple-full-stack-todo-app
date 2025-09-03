@@ -8,6 +8,9 @@ function useCreateTodo() {
                const response = await apiFetch('post', '/api/todos', {description: todo})
                return response
           },
+          onSuccess: () => {
+               console.log('Todo created')
+          },
           onError:() => {
                console.error('Failed to create Todo')
           }
