@@ -2,7 +2,7 @@ import { Todo } from '../models/todo.model.js'
 
 export const createTodo = async (req, res, next) => {
     try{
-          const { description} = req.body
+          const { description } = req.body
 
           const todoItem = await Todo.create({description })
 

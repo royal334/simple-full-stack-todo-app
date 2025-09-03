@@ -5,11 +5,13 @@ import cookieParser from "cookie-parser"
 import errorMiddleware from "./middlewares/error.middleware.js"
 //import authRouter from "./routes/auth.route.js"
 import todoRouter from "./routes/todos.route.js"
+import cors from "cors"
 
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended:false }))
+app.use(cors())
 app.use(cookieParser())
 app.use(errorMiddleware)
 

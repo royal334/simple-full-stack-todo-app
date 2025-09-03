@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form"
+import useCreateTodo from "../hooks/useCreateTodo";
 
 type FormPropTypes = {
   todo:string
@@ -10,6 +11,8 @@ type SearchProps = {
 
 function Search({addTodo}:SearchProps) {
 
+  const { mutate } = useCreateTodo()
+
   const { register,formState, handleSubmit, reset  } = useForm<FormPropTypes>({
     defaultValues:{
       todo:''
@@ -18,7 +21,8 @@ function Search({addTodo}:SearchProps) {
 
   const { errors } = formState
 
-  const onSubmit = (data:FormPropTypes) =>{
+  const onSubmit = (data:FormPropTypes) => {
+      mutate(data.todo)
       addTodo(data.todo)
       reset()
   }
