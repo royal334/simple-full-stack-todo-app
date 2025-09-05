@@ -5,11 +5,7 @@ type FormPropTypes = {
   todo:string
 }
 
-type SearchProps = {
-  addTodo: (todo: string) => void;
-};
-
-function Search({addTodo}:SearchProps) {
+function Search() {
 
   const { mutate } = useCreateTodo()
 
@@ -23,7 +19,6 @@ function Search({addTodo}:SearchProps) {
 
   const onSubmit = (data:FormPropTypes) => {
       mutate(data.todo)
-      addTodo(data.todo)
       reset()
   }
 

@@ -18,7 +18,6 @@ function App() {
     if (data && data.todoItem) {
       // If todoItem is an array of objects with a 'description' field
       setTodos(data.todoItem);
-      console.log(data)
     }
   }, [data]);
 
@@ -30,10 +29,14 @@ function App() {
     setTodos(prev => prev.filter(todo => todo._id !== id))
   }
 
+  const removeAllTodos = () => {
+    setTodos([])
+  }
+
   return (
     <>
-    <Search addTodo={addTodo}  />
-    <TodoList todos ={todos} removeTodo={removeTodo}/>
+    <Search/>
+    <TodoList todos ={todos} removeTodo={removeTodo} removeAllTodos={removeAllTodos}/>
 
     </>
   )

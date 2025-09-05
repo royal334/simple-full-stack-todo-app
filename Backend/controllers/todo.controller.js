@@ -56,7 +56,7 @@ export const deleteTodo = async (req, res, next) => {
 
 export const deleteTodos = async (req, res, next) => {
      try{
-               await Todo.delete()
+               await Todo.deleteMany({})
 
            res.status(200).json({
                success: true,

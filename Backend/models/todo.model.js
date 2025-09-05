@@ -4,7 +4,6 @@ const todoSchema = Schema({
      description:{
           type: String,
           required:true,
-          minLength:5,
      },
      completed: Boolean
      // userId:{
