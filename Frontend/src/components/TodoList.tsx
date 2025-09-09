@@ -5,18 +5,16 @@ import DeleteTodo from "./DeleteTodo";
 
 type TodoListProps = {
   todos: TodoType[];
-  removeTodo: (id:string) => void
   removeAllTodos: () => void
 };
-function TodoList({todos, removeTodo, removeAllTodos}:TodoListProps) {
+function TodoList({todos, removeAllTodos}:TodoListProps) {
 
      const { mutate } = useDeleteTodo()
 
      const handleDeleteTodo = (id:any) =>{
-          try{      
+          try{
                     if(id) {
                     mutate(id)
-                    removeTodo(id)
                }
           }
           catch(err){

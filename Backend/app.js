@@ -3,7 +3,7 @@ import { PORT } from "./config/env.js"
 import { connectDB } from "./database/mongodb.js"
 import cookieParser from "cookie-parser"
 import errorMiddleware from "./middlewares/error.middleware.js"
-//import authRouter from "./routes/auth.route.js"
+import authRouter from "./routes/auth.route.js"
 import todoRouter from "./routes/todos.route.js"
 import cors from "cors"
 
@@ -15,7 +15,7 @@ app.use(cors())
 app.use(cookieParser())
 app.use(errorMiddleware)
 
-// app.use('/api/auth',authRouter)
+app.use('/api/auth',authRouter)
 app.use('/api', todoRouter)
 
 

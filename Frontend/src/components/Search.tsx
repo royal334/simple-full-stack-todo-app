@@ -1,11 +1,18 @@
+import type { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form"
 import useCreateTodo from "../hooks/useCreateTodo";
+import type { TodoType } from "../App";
 
 type FormPropTypes = {
   todo:string
 }
 
-function Search() {
+type TodoTypeProps = {
+  todos?:TodoType[]
+  setTodos:Dispatch<SetStateAction<TodoType[]>>
+}
+
+function Search({setTodos}:TodoTypeProps) {
 
   const { mutate } = useCreateTodo()
 
@@ -18,6 +25,7 @@ function Search() {
   const { errors } = formState
 
   const onSubmit = (data:FormPropTypes) => {
+    setTodos((prev:TodoType[]) => [...prev,{ description: data.todo }])
       mutate(data.todo)
       reset()
   }
