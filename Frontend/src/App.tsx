@@ -4,7 +4,8 @@ import Search from "./components/Search"
 import TodoList from "./components/TodoList"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
-import { useAuth } from "./AuthContext"
+import { useAuth } from "./store/AuthContext"
+import Header from "./components/Header";
 
 export type TodoType = {
   _id?: string;
@@ -53,8 +54,11 @@ function App() {
       >
         Logout
       </button>
-    <Search todos={todos} setTodos={setTodos}/>
-      <TodoList todos={todos} removeAllTodos={removeAllTodos}/>
+      <div className="flex flex-col gap-6 mt-12 p-4">
+        <Header/>
+        <Search todos={todos} setTodos={setTodos}/>
+        <TodoList todos={todos} removeAllTodos={removeAllTodos}/>
+      </div>
     </>
   )
 }

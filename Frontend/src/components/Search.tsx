@@ -25,18 +25,23 @@ function Search({setTodos}:TodoTypeProps) {
   const { errors } = formState
 
   const onSubmit = (data:FormPropTypes) => {
-    setTodos((prev:TodoType[]) => [...prev,{ description: data.todo }])
-      mutate(data.todo)
-      reset()
+      try{    
+        setTodos((prev:TodoType[]) => [...prev,{ description: data.todo }])
+        mutate(data.todo)
+        reset()
+      }
+      catch{
+
+      }
   }
 
   return (
     <section>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="container mx-auto translate-y-20 h-16 flex justify-center">
+        <div className="container mx-auto h-16 flex justify-center">
           <input type="text"
             placeholder="Create a new todo..."
-            className="rounded text-gray-600 font-semibold px-4 bg-white w-3/4  md:w-full h-full"
+            className="rounded text-gray-600 font-semibold px-4 md:mx-0 bg-white w-full h-full dark:bg-navy-900 dark:text-purple-600"
             {...register('todo')}
           />
           {errors && <span className="text-red-500 text-sm">{errors.todo?.message}</span>}

@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './index.css'
 import App from './App.tsx'
-import { AuthProvider } from './AuthContext.tsx'
+import { AuthProvider } from './store/AuthContext.tsx'
+import { ThemeProvider } from './store/ThemeContext.tsx'
 
 const queryClient = new QueryClient()
 
@@ -11,7 +12,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <App />
+      <ThemeProvider>
+          <App />
+      </ThemeProvider>
     </AuthProvider>
   </QueryClientProvider>
   </StrictMode>

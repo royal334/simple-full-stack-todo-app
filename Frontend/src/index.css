@@ -39,6 +39,7 @@ body{
 @media (prefers-color-scheme: dark) {
      body{
           background-image: url('/images/bg-mobile-dark.jpg');
+          background-color: var(--color-navy-950);
      }
 
      @media (min-width:768px) {
