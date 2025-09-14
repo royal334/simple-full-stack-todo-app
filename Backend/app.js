@@ -1,5 +1,5 @@
 import express from "express"
-import { PORT } from "./config/env.js"
+import { PORT, CORS_ORIGIN } from "./config/env.js"
 import { connectDB } from "./database/mongodb.js"
 import cookieParser from "cookie-parser"
 import errorMiddleware from "./middlewares/error.middleware.js"
@@ -11,7 +11,10 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended:false }))
-app.use(cors())
+app.use(cors({
+     origin: CORS_ORIGIN || 'http://localhost:5500',
+     credentials: true
+}))
 app.use(cookieParser())
 app.use(errorMiddleware)
 
