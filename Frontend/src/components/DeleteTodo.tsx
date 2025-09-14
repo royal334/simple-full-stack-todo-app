@@ -25,7 +25,7 @@ function DeleteTodo({removeAllTodos}:DeleteTodoType) {
 
   return (
      <div className="p-4"> 
-          <button onClick= {handelDeleteAllTodo} className="flex items-center md:items-start ml-auto cursor-pointer"><Trash2 size={18} color="#ff0000"/> <span className="text-[#ff0000]">Delete all Todos</span></button>
+          <button onClick= {handelDeleteAllTodo} className="flex items-center md:items-start ml-auto cursor-pointer"><Trash2 size={18} color="#ff0000"/> <span className="text-[#ff0000]">Delete all todo items</span></button>
      </div>
   )
 }

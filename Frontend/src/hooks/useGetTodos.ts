@@ -1,8 +1,6 @@
 import { apiFetch } from "../lib/apiFetch";
 import { useQuery} from "@tanstack/react-query";
 
-
-
  function useGetTodos() {
      const token = localStorage.getItem('token');
   return useQuery({

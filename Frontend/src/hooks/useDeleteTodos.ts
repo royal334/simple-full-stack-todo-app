@@ -1,8 +1,6 @@
 import { apiFetch } from "../lib/apiFetch";
 import { useMutation } from "@tanstack/react-query";
 
-
-
 function useDeleteTodos() {
   return useMutation ({
      mutationFn: async() => {
